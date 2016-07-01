@@ -1,4 +1,3 @@
-package com.fmi.rsa;
 
 import java.util.ArrayList;
 import java.util.concurrent.*;
@@ -63,7 +62,6 @@ public class MonteCarlo {
         }
 
         // The final result is the arithmetic mean of the results from all the threads.
-        double pi = 4 * sum / pointsToCalculate;
-        return pi;
+        return sum / (double) threads;
     }
 }

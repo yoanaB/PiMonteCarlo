@@ -1,4 +1,4 @@
-package com.fmi.rsa;
+
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ThreadLocalRandom;
@@ -19,7 +19,7 @@ public class PiValue implements Callable {
         this.threadNumber = threadNumber;
     }
 
-    public Long call() {
+    public Double call() {
         if(!isQuietMode) {
             System.out.println(String.format("Thread %d started!", threadNumber));
         }
@@ -34,12 +34,12 @@ public class PiValue implements Callable {
             }
         }
         // calculate the result for the current thread
-        //pi = 4 * (double) insidePoints / pointsToCalculate;
+        pi = 4 * (double) insidePoints / pointsToCalculate;
         long stopTime = System.currentTimeMillis();
         if(!isQuietMode) {
             System.out.println(String.format("Thread %d finished!", threadNumber));
             System.out.println(String.format("Thread %d execution time was: %d ms.", threadNumber, stopTime - startTime));
         }
-        return insidePoints;
+        return pi;
     }
 }
